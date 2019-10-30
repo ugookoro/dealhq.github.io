@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Compliance Template</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400|Overpass:400,600,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        label {
+            font-size: 0.8rem;
+            margin-bottom: 0px;
+            color: #777777;
+
+        }
+
+        .font-overpass {
+            font-family: 'Overpass', sans-serif;
+
+        }
+
+        dt {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="logo.png" class="img img-fluid mx-auto">
+                <h2 class=" font-overpass font-weight-bold text-center">PRIVATE COMPANY CORPORATE GOVERNANCE COMPLIANCE
+                    REPORT GENERATOR</h2>
+                <p class="text-left">
+                    This document provides summary of the general compliance obligations statutorily imposed on Private
+                    Companies in Nigeria under the Federal laws (excluding industry specific regulations, internal
+                    policies/codes and state/local government laws) .
+                </p>
+                <p class="text-left">
+                    It is expected that a compliance audit be conducted at the end of each financial year. On completion
+                    of the audit exercise which will be undertaken by the Company’s Internal Compliance Team ; a
+                    compliance report is expected to be submitted to the Board.
+                </p>
+                <p class="text-left">
+                    This report generator makes provision for the inclusion of other sector specific/internal rules to
+                    which the Company is subject and a provision for explanations where the Company is not fully
+                    compliant (factors that have hindered the Company’s full compliance within the period under review
+                    including exposures and other liabilities which may arise on account of any failure to comply) in
+                    accordance with the “Apply and Explain” principle under the Nigerian Code of Corporate Governance,
+                    2018
+                </p>
+                <div class="p-4 text-left" v-show="complete === false">
+                    <dl>
+                        <dt class="h5 font-overpass" data-toggle="collapse" data-target="#corporate"
+                            aria-expanded="false" aria-controls="corporate">CORPORATE</dt>
+                        <dd class="mb-5 collapse show" id="corporate">
+                            <ul class="questions">
+
+                                <li class="mb-3" v-for="requirement in corporateRequirements">
+                                    <span class="font-weight-bold">{{requirement.Requirement}}</span> <br />
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label>Compliance Level </label>
+                                            <select name="compliance" v-model="requirement.ComplianceLevel"
+                                                class="form-control">
+                                                <option value=""></option>
+                                                <option value="2">Full compliance</option>
+                                                <option value="1">Partial Compliance</option>
+                                                <option value="0">Non Compliant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-6">
+                                            <label>Source law</label>
+                                            <p>{{requirement.SourceLaw}}</p>
+                                        </div>
+
+                                        <div class="form-group col-12" v-show="requirement.ComplianceLevel === '0'">
+                                            <label>Please add your explanation below</label>
+                                            <textarea name="comments" id="" cols="3" rows="5" class="form-control"
+                                                v-model="requirement.Comments">
+
+                                            </textarea>
+                                            <p class="text-muted text-left">
+                                                PENALTY : <span class="text-danger">{{requirement.Penalty}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </dd>
+
+
+                        <dt class="h5 font-overpass" data-toggle="collapse" data-target="#governance"
+                            aria-expanded="false" aria-controls="governance">GOVERNANCE</dt>
+                        <dd id="governance" class="mb-5 collapse">
+                            <ul class="questions">
+
+                                <li class="mb-3" v-for="requirement in governanceRequirements">
+                                    <span class="font-weight-bold">{{requirement.Requirement}}</span> <br />
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label>Compliance Level</label>
+                                            <select name="compliance" v-model="requirement.ComplianceLevel"
+                                                class="form-control">
+                                                <option value=""></option>
+                                                <option value="2">Full compliance</option>
+                                                <option value="1">Partial Compliance</option>
+                                                <option value="0">Non Compliant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-6">
+                                            <label>Source law</label>
+                                            <p>{{requirement.SourceLaw}}</p>
+                                        </div>
+
+                                        <div class="form-group col-12" v-show="requirement.ComplianceLevel === '0'">
+                                            <label>Please add your explanation below</label>
+                                            <textarea name="comments" id="" cols="3" rows="5" class="form-control"
+                                                v-model="requirement.Comments">
+
+                                                                            </textarea>
+                                            <p class="text-muted text-left">
+                                                PENALTY : <span class="text-danger">{{requirement.Penalty}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </dd>
+
+                        <dt class="h5 font-overpass" data-toggle="collapse" data-target="#finance" aria-expanded="false"
+                            aria-controls="finance">FINANCIAL REPORTING</dt>
+                        <dd class="mb-5 collapse" id="finance">
+                            <ul class="questions">
+
+                                <li class="mb-3" v-for="requirement in financialRequirements">
+                                    <span class="font-weight-bold">{{requirement.Requirement}}</span> <br />
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label>Compliance Level</label>
+                                            <select name="compliance" v-model="requirement.ComplianceLevel"
+                                                class="form-control">
+                                                <option value=""></option>
+                                                <option value="2">Full compliance</option>
+                                                <option value="1">Partial Compliance</option>
+                                                <option value="0">Non Compliant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-6">
+                                            <label>Source law</label>
+                                            <p>{{requirement.SourceLaw}}</p>
+                                        </div>
+
+                                        <div class="form-group col-12" v-show="requirement.ComplianceLevel === '0'">
+                                            <label>Please add your explanation below</label>
+                                            <textarea name="comments" id="" cols="3" rows="5" class="form-control"
+                                                v-model="requirement.Comments">
+
+                                                                                                    </textarea>
+                                            <p class="text-muted text-left">
+                                                PENALTY : <span class="text-danger">{{requirement.Penalty}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </dd>
+
+
+                        <dt class="h5 font-overpass" data-toggle="collapse" data-target="#taxation"
+                            aria-expanded="false" aria-controls="taxation">TAXATION</dt>
+                        <dd class="mb-5 collapse" id="taxation">
+                            <ul class="questions">
+
+                                <li class="mb-3" v-for="requirement in taxationRequirements">
+                                    <span class="font-weight-bold">{{requirement.Requirement}}</span> <br />
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label>Compliance Level</label>
+                                            <select name="compliance" v-model="requirement.ComplianceLevel"
+                                                class="form-control">
+                                                <option value=""></option>
+                                                <option value="2">Full compliance</option>
+                                                <option value="1">Partial Compliance</option>
+                                                <option value="0">Non Compliant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-6">
+                                            <label>Source law</label>
+                                            <p>{{requirement.SourceLaw}}</p>
+                                        </div>
+
+                                        <div class="form-group col-12" v-show="requirement.ComplianceLevel === '0'">
+                                            <label>Please add your explanation below</label>
+                                            <textarea name="comments" id="" cols="3" rows="5" class="form-control"
+                                                v-model="requirement.Comments">
+
+                                                                                                                            </textarea>
+                                            <p class="text-muted text-left">
+                                                PENALTY : <span class="text-danger">{{requirement.Penalty}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </dd>
+
+                        <dt class="h5 font-overpass" data-toggle="collapse" data-target="#pension" aria-expanded="false"
+                            aria-controls="pension">PENSION</dt>
+                        <dd class="mb-5 collapse" id="pension">
+                            <ul class="questions">
+                                <li class="mb-3" v-for="requirement in pensionRequirements">
+                                    <span class="font-weight-bold">{{requirement.Requirement}}</span> <br />
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label>Compliance Level</label>
+                                            <select name="compliance" v-model="requirement.ComplianceLevel"
+                                                class="form-control">
+                                                <option value=""></option>
+                                                <option value="2">Full compliance</option>
+                                                <option value="1">Partial Compliance</option>
+                                                <option value="0">Non Compliant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-6">
+                                            <label>Source law</label>
+                                            <p>{{requirement.SourceLaw}}</p>
+                                        </div>
+
+                                        <div class="form-group col-12" v-show="requirement.ComplianceLevel === '0'">
+                                            <label>Please add your explanation below</label>
+                                            <textarea name="comments" id="" cols="3" rows="5" class="form-control"
+                                                v-model="requirement.Comments">
+
+                                                                                                                                                    </textarea>
+                                            <p class="text-muted text-left">
+                                                PENALTY : <span class="text-danger">{{requirement.Penalty}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </dd>
+                    </dl>
+
+
+                    <button class="btn btn-block btn-lg btn-success" @click="generateReport">GENERATE REPORT</button>
+                </div>
+
+                <div class="p-2 text-left" v-show="complete === true">
+                    <h3 class="font-overpass">CORPORATE</h3>
+                    <div class="form-group">
+
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">REQUIREMENT</th>
+                                    <th scope="col">COMPLIANCE LEVEL</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <template v-for="requirement in corporateRequirements">
+                                    <tr>
+                                        <td
+                                            v-bind:class="{'text-success': requirement.ComplianceLevel === '2', 'text-warning': requirement.ComplianceLevel === '1','text-danger': requirement.ComplianceLevel === '0'}">
+                                            {{requirement.Requirement}}</td>
+                                        <td>{{requirement.ComplianceLevel | compliance}}</td>
+                                    </tr>
+                                    <tr v-if="requirement.Comments !== undefined">
+                                        <td colspan="2" class="text-muted">
+                                            {{requirement.Comments}}
+                                        </td>
+                                    </tr>
+                                </template>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+
+
+                    <h3 class="font-overpass">GOVERNANCE</h3>
+
+                    <div class="form-group">
+
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">REQUIREMENT</th>
+                                    <th scope="col">COMPLIANCE LEVEL</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="requirement in governanceRequirements">
+                                    <tr>
+                                        <td
+                                            v-bind:class="{'text-success': requirement.ComplianceLevel === '2', 'text-warning': requirement.ComplianceLevel === '1','text-danger': requirement.ComplianceLevel === '0'}">
+                                            {{requirement.Requirement}}</td>
+                                        <td>{{requirement.ComplianceLevel | compliance}}</td>
+                                    </tr>
+                                    <tr v-if="requirement.Comments !== undefined">
+                                        <td colspan="2" class="text-muted">
+                                            {{requirement.Comments}}
+                                        </td>
+                                    </tr>
+                                </template>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+
+
+                    <h3 class="font-overpass">FINANCIAL</h3>
+                    <div class="form-group">
+
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">REQUIREMENT</th>
+                                    <th scope="col">COMPLIANCE LEVEL</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <template v-for="requirement in financialRequirements">
+                                    <tr>
+                                        <td
+                                            v-bind:class="{'text-success': requirement.ComplianceLevel === '2', 'text-warning': requirement.ComplianceLevel === '1','text-danger': requirement.ComplianceLevel === '0'}">
+                                            {{requirement.Requirement}}</td>
+                                        <td>{{requirement.ComplianceLevel | compliance}}</td>
+                                    </tr>
+                                    <tr v-if="requirement.Comments !== undefined">
+                                        <td colspan="2" class="text-muted">
+                                            {{requirement.Comments}}
+                                        </td>
+                                    </tr>
+                                </template>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+
+                    <h3 class="font-overpass">PENSION</h3>
+                    <div class="form-group">
+
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">REQUIREMENT</th>
+                                    <th scope="col">COMPLIANCE LEVEL</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="requirement in pensionRequirements">
+                                    <tr>
+                                        <td
+                                            v-bind:class="{'text-success': requirement.ComplianceLevel === '2', 'text-warning': requirement.ComplianceLevel === '1','text-danger': requirement.ComplianceLevel === '0'}">
+                                            {{requirement.Requirement}}</td>
+                                        <td>{{requirement.ComplianceLevel | compliance}}</td>
+                                    </tr>
+                                    <tr v-if="requirement.Comments !== undefined">
+                                        <td colspan="2" class="text-muted">
+                                            {{requirement.Comments}}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+
+
+                    <h3 class="font-overpass">TAXATION</h3>
+
+                    <div class="form-group">
+
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">REQUIREMENT</th>
+                                    <th scope="col">COMPLIANCE LEVEL</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="requirement in taxationRequirements">
+                                    <tr>
+                                        <td
+                                            v-bind:class="{'text-success': requirement.ComplianceLevel === '2', 'text-warning': requirement.ComplianceLevel === '1','text-danger': requirement.ComplianceLevel === '0'}">
+                                            {{requirement.Requirement}}</td>
+                                        <td>{{requirement.ComplianceLevel | compliance}}</td>
+                                    </tr>
+                                    <tr v-if="requirement.Comments !== undefined">
+                                        <td colspan="2" class="text-muted">
+                                            {{requirement.Comments}}
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="btn-group my-4" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success" @click="window.print()">DOWNLOAD PDF</button>
+                        <button type="button" class="btn btn-primary">SEND AS EMAIL</button>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="index.js">
+
+    </script>
+</body>
+
+</html>
