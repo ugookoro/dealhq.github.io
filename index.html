@@ -62,7 +62,9 @@
                 <div class="p-4 text-left" v-show="complete === false">
                     <dl>
                         <dt class="h5 font-overpass" data-toggle="collapse" data-target="#corporate"
-                            aria-expanded="false" aria-controls="corporate">CORPORATE</dt>
+                            aria-expanded="false" aria-controls="corporate">CORPORATE <img src="chevron.png"
+                                class="float-right" alt="">
+                        </dt>
                         <dd class="mb-5 collapse show" id="corporate">
                             <ul class="questions">
 
@@ -103,9 +105,11 @@
                             </ul>
                         </dd>
 
-
+                        <br>
                         <dt class="h5 font-overpass" data-toggle="collapse" data-target="#governance"
-                            aria-expanded="false" aria-controls="governance">GOVERNANCE</dt>
+                            aria-expanded="false" aria-controls="governance">GOVERNANCE
+                            <img src="chevron.png" class="float-right" alt="">
+                        </dt>
                         <dd id="governance" class="mb-5 collapse">
                             <ul class="questions">
 
@@ -146,8 +150,11 @@
                             </ul>
                         </dd>
 
+                        <br>
                         <dt class="h5 font-overpass" data-toggle="collapse" data-target="#finance" aria-expanded="false"
-                            aria-controls="finance">FINANCIAL REPORTING</dt>
+                            aria-controls="finance">FINANCIAL REPORTING
+                            <img src="chevron.png" class="float-right" alt="">
+                        </dt>
                         <dd class="mb-5 collapse" id="finance">
                             <ul class="questions">
 
@@ -188,9 +195,11 @@
                             </ul>
                         </dd>
 
-
+                        <br>
                         <dt class="h5 font-overpass" data-toggle="collapse" data-target="#taxation"
-                            aria-expanded="false" aria-controls="taxation">TAXATION</dt>
+                            aria-expanded="false" aria-controls="taxation">TAXATION
+                            <img src="chevron.png" class="float-right" alt="">
+                        </dt>
                         <dd class="mb-5 collapse" id="taxation">
                             <ul class="questions">
 
@@ -231,8 +240,11 @@
                             </ul>
                         </dd>
 
+                        <br>
                         <dt class="h5 font-overpass" data-toggle="collapse" data-target="#pension" aria-expanded="false"
-                            aria-controls="pension">PENSION</dt>
+                            aria-controls="pension">PENSION
+                            <img src="chevron.png" class="float-right" alt="">
+                        </dt>
                         <dd class="mb-5 collapse" id="pension">
                             <ul class="questions">
                                 <li class="mb-3" v-for="requirement in pensionRequirements">
@@ -278,7 +290,7 @@
                 </div>
 
                 <div class="p-2 text-left" v-show="complete === true">
-                    <h3 class="font-overpass">CORPORATE</h3>
+                    <h3 class="font-overpass">CORPORATE </h3>
                     <div class="form-group">
 
                         <table class="table table-condensed table-hover">
@@ -300,7 +312,10 @@
                                     </tr>
                                     <tr v-if="requirement.Comments !== undefined">
                                         <td colspan="2" class="text-muted">
-                                            {{requirement.Comments}}
+                                            <small>Explanation</small>
+                                            <p>{{requirement.Comments}}</p>
+                                            <small>Penalty</small>
+                                            <p>{{requirement.Penalty}}</p>
                                         </td>
                                     </tr>
                                 </template>
@@ -335,7 +350,10 @@
                                     </tr>
                                     <tr v-if="requirement.Comments !== undefined">
                                         <td colspan="2" class="text-muted">
-                                            {{requirement.Comments}}
+                                            <small>Explanation</small>
+                                            <p>{{requirement.Comments}}</p>
+                                            <small>Penalty</small>
+                                            <p>{{requirement.Penalty}}</p>
                                         </td>
                                     </tr>
                                 </template>
@@ -369,7 +387,10 @@
                                     </tr>
                                     <tr v-if="requirement.Comments !== undefined">
                                         <td colspan="2" class="text-muted">
-                                            {{requirement.Comments}}
+                                            <small>Explanation</small>
+                                            <p>{{requirement.Comments}}</p>
+                                            <small>Penalty</small>
+                                            <p>{{requirement.Penalty}}</p>
                                         </td>
                                     </tr>
                                 </template>
@@ -401,7 +422,10 @@
                                     </tr>
                                     <tr v-if="requirement.Comments !== undefined">
                                         <td colspan="2" class="text-muted">
-                                            {{requirement.Comments}}
+                                            <small>Explanation</small>
+                                            <p>{{requirement.Comments}}</p>
+                                            <small>Penalty</small>
+                                            <p>{{requirement.Penalty}}</p>
                                         </td>
                                     </tr>
                                 </template>
@@ -433,7 +457,10 @@
                                     </tr>
                                     <tr v-if="requirement.Comments !== undefined">
                                         <td colspan="2" class="text-muted">
-                                            {{requirement.Comments}}
+                                            <small>Explanation</small>
+                                            <p>{{requirement.Comments}}</p>
+                                            <small>Penalty</small>
+                                            <p>{{requirement.Penalty}}</p>
                                         </td>
                                     </tr>
                                 </template>
