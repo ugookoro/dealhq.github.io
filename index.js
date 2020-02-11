@@ -131,7 +131,7 @@ var app = new Vue({
                 ComplianceLevel: undefined
             },
             {
-                Requirement: "The Board has considered the following in determining the requite number of its members.",
+                Requirement: "The Board has considered the following in determining the requite number of its members: an appropriate mix of knowledge, skills and experience, including the business, commercial and industry experience needed to govern the Company; an appropriate mix of Executive, Non-Executive and Independent Non-Executive members such that majority of the Board are Non-Executive Directors. It is desirable that most of the Non-Executive Directors are independent; need for a sufficient number of members that qualify to serve on the committees of the Board; need to secure quorum at meetings; and diversity targets relating to the composition of the Board.",
                 Category: "Governance",
                 SourceLaw: "CGCS 2.3",
                 Penalty: "",
@@ -486,6 +486,206 @@ var app = new Vue({
                 Requirement: "The Company has a remuneration policy designed by its remuneration committee.",
                 Category: "Governance",
                 SourceLaw: "CGC S.16.7",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The MD/CEO and Executive Directors are not involved in the determination of  their own renumeration",
+                Category: "Governance",
+                SourceLaw: "CGC S.16.8",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Company's Remuneration Policy, as well as remuneration of all Directors are disclosed in the Company's annual report.",
+                Category: "Governance",
+                SourceLaw: "CGC S.16.9",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The Company has implemented a clawback policy to recover excess or undeserved reward, such as bonuses, incentives, share of profits, stock options, or any performance-based reward, from Directors and senior employeees",
+                Category: "Governance",
+                SourceLaw: "CGC S.16.11",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The MD/CEO and Executive Directors not to receive sitting allowances for attending meetings of the Board or its committees and Director's fees from the Company, its holding company or subsidiaries",
+                Category: "Governance",
+                SourceLaw: "CGC S.17.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The Board ensures the establishment of a risk management framework that defines the Company's risk policy, risk appetite and risk limits; and identifies, assesses, monitors and manages key business risks to safeguard shareholders' investments and the Company's assets. ",
+                Category: "Governance",
+                SourceLaw: "CGC S.18.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The Company has adopted an internal audit charter approved by the Board has been formed to clearly define the purpose, authority and responsibility of the Company's internal audit function. ",
+                Category: "Governance",
+                SourceLaw: "CGC S.18.6",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "An external assessment of the effectiveness of the internal audit function is conducted at least once every three years by a qualified independent reviewer to be appointed by the Board. ",
+                Category: "Governance",
+                SourceLaw: "CGC S.19.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The company has established a whistle-blowing framework. ",
+                Category: "Governance",
+                SourceLaw: "CGC S.21.2",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The chairmen of all Board committees are present at General Meetings of the Company to respond to shareholders' inquiries.",
+                Category: "Governance",
+                SourceLaw: "CGC S.21.4",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "Notices of General Meetings are given to Shareholders at least 21 days from the date on which the meeting will be held.",
+                Category: "Governance",
+                SourceLaw: "CGC S.21.4",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "Copies of the annual reports, audited financial statements, and all other information pertaining to any resolution to be voted upon that will enable members prepare adequately for the meeting are despatched along with the notice of meeting. ",
+                Category: "Governance",
+                SourceLaw: "CGC S.23.1.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board ensures that shareholders at annual general meetings preserve their effective powers to appoint and remove Directors of the company",
+                Category: "Governance",
+                SourceLaw: "CGC S.23.1.2",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board ensures that all shareholders are treated fairly and equitably. No shareholder, however large his shareholding or whether institutional or otherwise, is given preferential treatment or superior access to information or other materials.",
+                Category: "Governance",
+                SourceLaw: "CGC S.23.1.3",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board ensures that minority shareholders are adequately protected from abusive actions by controlling shareholders.",
+                Category: "Governance",
+                SourceLaw: "CGC S.23.1.4",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board ensures that the Company promptly renders to shareholders documentary evidence of ownership interest in the Company and related instruments. Where these are rendered electronically, the Board ensures that they are rendered to shareholders promptly and in a secure manner.",
+                Category: "Governance",
+                SourceLaw: "CGC S.24.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The Board has formulated a Code of Business Conduct and Ethics to be periodically reviewed by the Board.",
+                Category: "Governance",
+                SourceLaw: "CGC S.25.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+
+            {
+                Requirement: "The Board has ensured the establishment of policies on insider trading, related party transactions and conflict of interest.",
+                Category: "Governance",
+                SourceLaw: "CGC S.26.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board has established policies and practices regarding its social, ethical, safety, working conditions, health and environmental responsibilities as well as policies addressing corruption..",
+                Category: "Governance",
+                SourceLaw: "CGC S.26.3",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board monitors the implementation of sustainability policies and report on the extent of compliance with the policies.",
+                Category: "Governance",
+                SourceLaw: "CGC S.27.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board adopts and implements a stakeholder management and communication policy.",
+                Category: "Governance",
+                SourceLaw: "CGC S.28.1",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Board ensures that the Company's annual report includes a corporate governance report that provides clear information on the Company's governance structures, policies and practices as well as environmental and social risks and opportunities.",
+                Category: "Governance",
+                SourceLaw: "CGC S.28.5",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The annual report contains a statement by the Board on the Company's level of application of this Code arising from the results of its corporate governance evaluation.",
+                Category: "Governance",
+                SourceLaw: "CGC S.28.8",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The annual report contains a statement by the Board on the Company's ESG activities",
+                Category: "Governance",
+                SourceLaw: "CGC S.28.9",
+                Penalty: "",
+                Comments: undefined,
+                ComplianceLevel: undefined
+            },
+            {
+                Requirement: "The Company has established policies and procedures for the identification, communication and response to concerns from stakeholders",
+                Category: "",
+                SourceLaw: "",
                 Penalty: "",
                 Comments: undefined,
                 ComplianceLevel: undefined
